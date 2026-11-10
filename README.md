@@ -2,4 +2,4 @@
 # INF 241
 # 2026 1000095
 
-laboratory 0: Discussion
+laboratory 0: Discussion lorem ipsum
