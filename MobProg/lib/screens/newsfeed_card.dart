@@ -11,18 +11,26 @@ class NewsFeedScreen extends StatelessWidget {
       children: const [
         NewsFeedCard(
           userName: 'Paragatos',
-          postContent: 'Kamusta',
+          postContent: 'Hello',
           numOfLikes: 100,
-          date: 'October 11',
+          date: 'November 20',
         ),
         NewsFeedCard(
           userName: 'Paragatos',
           postContent: 'Nice Owl!',
           numOfLikes: 200,
           hasImage: true,
-          date: 'December 2',
+          date: 'December 1',
+        ),
+        NewsFeedCard(
+          userName: 'Paragatos',
+          postContent: 'Nice Owl!',
+          numOfLikes: 200,
+          hasImage: true,
+          date: 'December 1',
         ),
       ],
     );
   }
 }
+
