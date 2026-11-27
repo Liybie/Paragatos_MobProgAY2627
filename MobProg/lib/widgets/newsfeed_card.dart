@@ -9,6 +9,8 @@ class NewsFeedCard extends StatefulWidget {
   final String date;
   final int numOfLikes;
   final bool hasImage;
+  final String profileImage; // <-- Different profile picture per user
+  final String? postImage;   // <-- Different post image per card
 
   const NewsFeedCard({
     super.key,
@@ -17,6 +19,8 @@ class NewsFeedCard extends StatefulWidget {
     required this.date,
     this.numOfLikes = 0,
     this.hasImage = false,
+    this.profileImage = 'assets/images/Liybie.png',
+    this.postImage,
   });
 
   @override
@@ -75,7 +79,7 @@ class _NewsFeedCardState extends State<NewsFeedCard> {
               children: [
                 CircleAvatar(
                   radius: ScreenUtil().setSp(16),
-                  backgroundImage: const AssetImage('assets/images/Liybie.png'),
+                  backgroundImage: AssetImage(widget.profileImage), // made diynamic
                 ),
                 SizedBox(width: ScreenUtil().setWidth(10)),
                 Column(
@@ -121,7 +125,7 @@ class _NewsFeedCardState extends State<NewsFeedCard> {
             SizedBox(height: ScreenUtil().setHeight(5)),
 
             // Optional Image
-            if (widget.hasImage)
+            if (widget.hasImage && widget.postImage != null)
               Padding(
                 padding: EdgeInsets.symmetric(
                   vertical: ScreenUtil().setHeight(5),
@@ -129,7 +133,7 @@ class _NewsFeedCardState extends State<NewsFeedCard> {
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(ScreenUtil().setSp(8)),
                   child: Image.asset(
-                    'assets/images/owl.jpg',
+                    widget.postImage!, // <-- Dynamic
                     width: double.infinity,
                     height: ScreenUtil().setHeight(180),
                     fit: BoxFit.cover,
@@ -155,7 +159,7 @@ class _NewsFeedCardState extends State<NewsFeedCard> {
               ],
             ),
 
-            // Comment Input Placeholder
+            // Comment Input Placeholder (stays as your own avatar)
             Row(
               children: [
                 CircleAvatar(

@@ -19,6 +19,7 @@ class CustomText extends StatelessWidget {
   final TextAlign textAlign;
   final String fontFamily;
   final FontStyle fontStyle;
+  
   @override
   Widget build(BuildContext context) {
     return Text(
